@@ -25,6 +25,11 @@ public class SiteMapGenerator {
         return addURL(path, null);
     }
 
+    public SiteMapGenerator addURL(SiteURL path) {
+        siteURLList.add(path);
+        return this;
+    }
+
     public SiteMapGenerator addURL(String path, ChangeFrequency cf) {
         return addURL(path, cf, 0);
     }
