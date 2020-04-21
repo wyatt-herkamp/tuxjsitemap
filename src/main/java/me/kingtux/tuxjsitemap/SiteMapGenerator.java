@@ -25,10 +25,6 @@ public class SiteMapGenerator {
         return addURL(path, null);
     }
 
-    public SiteMapGenerator addURL(SiteURL path) {
-        siteURLList.add(path);
-        return this;
-    }
 
     public SiteMapGenerator addURL(String path, ChangeFrequency cf) {
         return addURL(path, cf, 0);
@@ -39,9 +35,19 @@ public class SiteMapGenerator {
     }
 
     public SiteMapGenerator addURL(String path, ChangeFrequency cf, long lastMod, double priority) {
-        String fullUrl = String.format(urlPattern, url, path);
-        siteURLList.add(new SiteURL(fullUrl, cf, lastMod, priority));
+        return addURL(new SiteURL(path, cf, lastMod, priority));
+    }
+
+    public SiteMapGenerator addURL(SiteURL siteURL) {
+        if (!siteURL.getUrl().contains(url)) {
+            siteURL.setUrl(String.format(urlPattern, url, siteURL.getUrl()));
+        }
+        siteURLList.add(siteURL);
         return this;
+    }
+
+    public String getUrl() {
+        return url;
     }
 
     public SiteMap build() {

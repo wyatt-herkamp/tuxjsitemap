@@ -20,6 +20,14 @@ public class SiteMap {
         subFiles = pagesString;
     }
 
+    public String getSubPage(String sub) {
+        return subFiles.get(sub);
+    }
+
+    public Map<String, String> getSubFiles() {
+        return subFiles;
+    }
+
     public String getIndexPage() {
         return indexFile;
     }

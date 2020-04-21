@@ -48,6 +48,14 @@ public class SiteURL {
         return element;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
     private Date longToDate(long l) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(l);
