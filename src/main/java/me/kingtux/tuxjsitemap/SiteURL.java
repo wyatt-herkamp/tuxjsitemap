@@ -9,11 +9,11 @@ import java.util.Calendar;
 import java.util.Date;
 
 public class SiteURL {
-    private final static DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
+    private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssZ");
     private Date lastMod;
     private String url;
-    private ChangeFrequency changeFrequency;
-    private double priority;
+    private final ChangeFrequency changeFrequency;
+    private final double priority;
 
     public SiteURL(String fullUrl, ChangeFrequency cf, long lastMod, double priority) {
         if (lastMod != 0) {
@@ -32,7 +32,7 @@ public class SiteURL {
         //Add Optional Elements
         if (lastMod != null) {
             Element lastmod = document.createElement("lastmod");
-            location.setTextContent(df.format(lastMod));
+            location.setTextContent(DATE_FORMAT.format(lastMod));
             element.appendChild(lastmod);
         }
         if (changeFrequency != null) {
@@ -61,4 +61,5 @@ public class SiteURL {
         calendar.setTimeInMillis(l);
         return calendar.getTime();
     }
+
 }
