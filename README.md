@@ -1,0 +1,1 @@
+# TuxJSitemap [![Maven Version](https://mvnhelper.potatocorp.dev/kingtux/me.kingtux/tuxjsitemap/badge.png)](https://mvnhelper.potatocorp.dev/kingtux/me.kingtux/tuxjsitemap)
